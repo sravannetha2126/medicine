@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medicine Reminder App</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Add favicon -->
+  <link rel="icon" type="image/png" href="med_clock_logo.jpg">
+</head>
+<body>
+  <div class="container">
+    <img src="med_clock_logo.jpg" alt="Med Clock Logo" class="logo">
+    <h2>💊 Medicine Reminder</h2>
+
+    <label>Select Language:</label>
+    <select id="language">
+      <option value="en">English</option>
+      <option value="te">Telugu</option>
+      <option value="hi">Hindi</option>
+    </select><br>
+
+    <label>Medicine Name (Optional):</label>
+    <input type="text" id="medicineName" placeholder="Enter medicine name"><br>
+
+    <label>Capture Medicine Photo:</label><br>
+    <video id="camera" autoplay playsinline width="300" height="200"></video><br>
+    <button onclick="capturePhoto()">📸 Capture</button>
+    <canvas id="canvas" width="300" height="200" style="display:none;"></canvas>
+    <img id="preview" alt=""><br>
+
+    <label>Select Time:</label>
+    <input type="time" id="time"><br>
+
+    <label>Select Days:</label>
+    <select id="days" multiple>
+      <option value="daily">Daily</option>
+      <option value="mon">Monday</option>
+      <option value="tue">Tuesday</option>
+      <option value="wed">Wednesday</option>
+      <option value="thu">Thursday</option>
+      <option value="fri">Friday</option>
+      <option value="sat">Saturday</option>
+      <option value="sun">Sunday</option>
+    </select><br>
+
+    <button onclick="addReminder()">➕ Add Reminder</button>
+    <button onclick="clearAllReminders()" style="background:#dc3545">🗑 Clear All</button>
+
+    <div class="reminder-list" id="reminderList">
+      <h3>Reminders</h3>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="popup" id="popup">
+    <p id="popupText"></p>
+    <img id="popupImg" src="" alt="">
+    <button onclick="closePopup()">Got it</button>
+  </div>
+
+  <audio id="beep" loop>
+    <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
